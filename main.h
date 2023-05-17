@@ -13,5 +13,6 @@
 char	**ft_split(char const *str, char c);
 void	free_double_ptr(char **str);
 void	new_line(char **str);
+size_t	ft_strlen(const char *s);
 
 #endif
