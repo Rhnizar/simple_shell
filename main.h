@@ -17,5 +17,7 @@ size_t	ft_strlen(char *s);
 char	*valid_command_path(char **paths, char *cmd);
 char	**get_paths(char **env);
 void	cmd_app_task2(char *line, char **env);
+void	environment(char **env);
+int	ft_strncmp(char *s1, char *s2, size_t n);
 
 #endif

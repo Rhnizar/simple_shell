@@ -56,6 +56,8 @@ void	cmd_app(char *line)
 		{
 			//cmd_app(line) // ===> this call in task 1
 			cmd_app_task2(line, env); // ===> this call in task 2
+			if (ft_strncmp(line, "env", 3) == 0)
+				environment(env);
 		}
 	}
 	free(line);
