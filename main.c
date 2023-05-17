@@ -47,17 +47,22 @@ void	cmd_app(char *line)
 	(void)argv;
 	while (1)
 	{
-		printf("simple_shell ~ ");
+		printf("\033[0;33m simple_shell ~ ");
+		printf("\033[0;37m");
 		len_line = getline(&line, &buf, stdin);
 		if (len_line < 0)
 			return (0);
 		new_line(&line);
 		if (line[0])
 		{
-			//cmd_app(line) // ===> this call in task 1
-			cmd_app_task2(line, env); // ===> this call in task 2
+			
 			if (ft_strncmp(line, "env", 3) == 0)
 				environment(env);
+			if (ft_strncmp(line, "exit", 4) == 0)
+				my_exit(line);
+			else
+				cmd_app_task2(line, env);// ===> this call in task 2
+			//cmd_app(line) // ===> this call in task 1
 		}
 	}
 	free(line);

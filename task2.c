@@ -3,6 +3,7 @@
 /**
  * cmd_app_task2 - execute command
  * line : char pointer
+ * env : double pointer
  */
 
 void	cmd_app_task2(char *line, char **env)
@@ -35,6 +36,6 @@ void	cmd_app_task2(char *line, char **env)
 		else if (pid == -1)
 			printf("Error the fork\n");
 		else
-		wait(NULL);
+			wait(NULL);
 	}
 }
