@@ -16,5 +16,6 @@ void	new_line(char **str);
 size_t	ft_strlen(char *s);
 char	*valid_command_path(char **paths, char *cmd);
 char	**get_paths(char **env);
+void	cmd_app_task2(char *line, char **env);
 
 #endif

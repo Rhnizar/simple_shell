@@ -37,12 +37,14 @@ void	cmd_app(char *line)
  * Return: int
  */
 
- int main(void)
+ int main(int argc, char **argv, char **env)
  {
 	char		*line = NULL;
 	ssize_t		len_line;
 	size_t		buf = 0;
 
+	(void)argc;
+	(void)argv;
 	while (1)
 	{
 		printf("simple_shell ~ ");
@@ -51,7 +53,10 @@ void	cmd_app(char *line)
 			return (0);
 		new_line(&line);
 		if (line[0])
-			cmd_app(line);
+		{
+			//cmd_app(line) // ===> this call in task 1
+			cmd_app_task2(line, env); // ===> this call in task 2
+		}
 	}
 	free(line);
 	return (0);
