@@ -21,7 +21,7 @@ void	free_double_ptr(char **str)
  * Return: lenght
  */
  
-size_t	ft_strlen(const char *s)
+size_t	ft_strlen(char *s)
 {
 	size_t	count;
 

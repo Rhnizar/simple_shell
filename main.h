@@ -13,6 +13,8 @@
 char	**ft_split(char const *str, char c);
 void	free_double_ptr(char **str);
 void	new_line(char **str);
-size_t	ft_strlen(const char *s);
+size_t	ft_strlen(char *s);
+char	*valid_command_path(char **paths, char *cmd);
+char	**get_paths(char **env);
 
 #endif
