@@ -51,7 +51,10 @@ void	cmd_app(char *line)
 		printf("\033[0;37m");
 		len_line = getline(&line, &buf, stdin);
 		if (len_line < 0)
+		{
+			printf("exit\n");
 			return (0);
+		}
 		new_line(&line);
 		if (line[0])
 		{
