@@ -2,8 +2,8 @@
 
 /**
  * str_count - count the string
- * str : char pointer
- * c : char
+ * @str : char pointer
+ * @c : char
  * Return: count
  */
 
@@ -30,8 +30,8 @@ static int	str_count(char *str, char c)
 
 /**
  * word - word
- * str : char pointer
- * c : char
+ * @str : char pointer
+ * @c : char
  * Return: word
  */
 
@@ -53,7 +53,7 @@ static char	*word(char *str, char c)
 		i++;
 	}
 	i = 0;
-	wostr = malloc (sizeof(char ) * count +1);
+	wostr = malloc(sizeof(char) * (count + 1));
 	if (!wostr)
 		return (NULL);
 	while (str[i] && str[i] == c)
@@ -66,8 +66,8 @@ static char	*word(char *str, char c)
 
 /**
  * ft_split - double pointer string
- * str : char pointer
- * c : char
+ * @str : char pointer
+ * @c : char
  * Return: double pointer
  */
 
@@ -79,7 +79,7 @@ char	**ft_split(char const *str, char c)
 
 	i = 0;
 	j = 0;
-	split = malloc (sizeof(char *) * (str_count((char *)str, c) + 1));
+	split = malloc(sizeof(char *) * (str_count((char *)str, c) + 1));
 	if (!split)
 		return (NULL);
 	while (str[i] && str[i] == c)

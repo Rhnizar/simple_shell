@@ -1,9 +1,10 @@
 #include "main.h"
 
 /**
- * exit - funtion exit
- * line : char pointer
+ * my_exit - funtion exit
+ * @line : char pointer
  */
+
 void	my_exit(char *line)
 {
 	free(line);

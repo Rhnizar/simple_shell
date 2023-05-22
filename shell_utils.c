@@ -2,7 +2,7 @@
 
 /**
  * free_double_ptr - function the free double pointer
- * str : double pointer
+ * @str : double pointer
  */
 
 void	free_double_ptr(char **str)
@@ -11,16 +11,16 @@ void	free_double_ptr(char **str)
 
 	i = 0;
 	while (str[i])
-		free (str[i++]);
+		free(str[i++]);
 	free(str);
 }
 
 /**
  * ft_strlen - lenght the string
- * s : char pointer
+ * @s : char pointer
  * Return: lenght
  */
- 
+
 size_t	ft_strlen(char *s)
 {
 	size_t	count;
@@ -35,7 +35,7 @@ size_t	ft_strlen(char *s)
 
 /**
  * new_line - new line
- * str : double pointer
+ * @str : double pointer
  */
 
 void new_line(char **str)
@@ -46,3 +46,4 @@ void new_line(char **str)
 	if ((*str)[len] == '\n')
 		(*str)[len] = '\0';
 }
+

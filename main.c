@@ -2,7 +2,7 @@
 
 /**
  * cmd_app - execute command
- * line : char pointer
+ * @line : char pointer
  */
 
 void	cmd_app(char *line)
@@ -34,11 +34,14 @@ void	cmd_app(char *line)
 
 /**
  * main - main programme
+ * @argc : arguments count
+ * @argv : arguments values
+ * @env : environment
  * Return: int
  */
 
- int main(int argc, char **argv, char **env)
- {
+int main(int argc, char **argv, char **env)
+{
 	char		*line = NULL;
 	ssize_t		len_line;
 	size_t		buf = 0;
@@ -58,7 +61,6 @@ void	cmd_app(char *line)
 		new_line(&line);
 		if (line[0])
 		{
-			
 			if (ft_strncmp(line, "env", 3) == 0)
 				environment(env);
 			if (ft_strncmp(line, "exit", 4) == 0)
@@ -70,4 +72,4 @@ void	cmd_app(char *line)
 	}
 	free(line);
 	return (0);
- }
+}
