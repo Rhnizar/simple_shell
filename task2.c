@@ -2,8 +2,8 @@
 
 /**
  * cmd_app_task2 - execute command
- * line : char pointer
- * env : double pointer
+ * @line : char pointer
+ * @env : double pointer
  */
 
 void	cmd_app_task2(char *line, char **env)
@@ -19,7 +19,7 @@ void	cmd_app_task2(char *line, char **env)
 	if (!valid_cmd)
 	{
 		printf("%s: command not found\n", split[0]);
-		return ;
+		return;
 	}
 	else
 	{
@@ -39,3 +39,4 @@ void	cmd_app_task2(char *line, char **env)
 			wait(NULL);
 	}
 }
+
