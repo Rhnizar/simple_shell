@@ -55,6 +55,7 @@ int main(int argc, char **argv, char **env)
 		len_line = getline(&line, &buf, stdin);
 		if (len_line < 0)
 		{
+			free(line);
 			printf("exit\n");
 			return (0);
 		}

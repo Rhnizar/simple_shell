@@ -16,9 +16,11 @@ void	cmd_app_task2(char *line, char **env)
 	split = ft_split(line, ' ');
 	paths = get_paths(env);
 	valid_cmd = valid_command_path(paths, split[0]);
+	free_double_ptr(paths);
 	if (!valid_cmd)
 	{
 		printf("%s: command not found\n", split[0]);
+		free_double_ptr(split);
 		return;
 	}
 	else
@@ -31,12 +33,13 @@ void	cmd_app_task2(char *line, char **env)
 				printf("Error in execve\n");
 				exit(1);
 			}
-			free_double_ptr(split);
 		}
 		else if (pid == -1)
 			printf("Error the fork\n");
 		else
 			wait(NULL);
+		free_double_ptr(split);
+		free(valid_cmd);
 	}
 }
 
