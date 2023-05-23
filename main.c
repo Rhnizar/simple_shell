@@ -66,8 +66,7 @@ int main(int argc, char **argv, char **env)
 			if (ft_strncmp(line, "exit", 4) == 0)
 				my_exit(line);
 			else
-				cmd_app_task2(line, env);// ===> this call in task 2
-			//cmd_app(line) // ===> this call in task 1
+				cmd_app_task2(line, env);
 		}
 	}
 	free(line);
