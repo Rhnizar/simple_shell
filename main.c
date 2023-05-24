@@ -79,7 +79,6 @@ int main(int argc, char **argv, char **env)
 				my_exit(line);
 			else
 				cmd_app_task2(line, env);
-			free(line);
 		}
 	}
 	return (0);

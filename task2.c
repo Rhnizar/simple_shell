@@ -40,6 +40,7 @@ void	cmd_app_task2(char *line, char **env)
 		else
 			wait(NULL);
 		free(valid_cmd);
+		free(split);
 	}
 }
 
