@@ -73,4 +73,3 @@ char	*ft_strdup(char *s1)
 	ret[i] = '\0';
 	return (ret);
 }
-

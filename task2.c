@@ -44,4 +44,3 @@ void	cmd_app_task2(char *line, char **env)
 		free_double_ptr(split);
 	}
 }
-

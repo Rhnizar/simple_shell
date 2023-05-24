@@ -23,4 +23,3 @@ void	my_exit(char *line);
 char	*ft_strdup(char *s1);
 
 #endif
-

@@ -110,4 +110,3 @@ char	*valid_command_path(char **paths, char *cmd)
 	free(cmd);
 	return (NULL);
 }
-
