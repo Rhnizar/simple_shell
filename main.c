@@ -57,29 +57,31 @@ int main(int argc, char **argv, char **env)
 	char		*line = NULL;
 	ssize_t		len_line;
 	size_t		buf = 0;
+	char		*path;
+	int			i = 0;
 
 	(void)argc;
 	(void)argv;
 	signal(SIGINT, sig_handl);
+	path = getenv("PATH");
 	while (1)
 	{
 		printf("simple_shell ~ ");
 		len_line = getline(&line, &buf, stdin);
 		if (len_line < 0)
 		{
-			free(line);
+			if (i == 0)
+				free(line);
 			return (0);
 		}
 		new_line(&line);
-		if (line[0])
-		{
-			if (ft_strncmp(line, "env", 3) == 0)
-				environment(env);
-			if (ft_strncmp(line, "exit", 4) == 0)
+		if (ft_strncmp(line, "exit", 4) == 0)
 				my_exit(line);
-			else
-				cmd_app_task2(line, env);
-		}
+		if (ft_strncmp(line, "env", 3) == 0)
+				environment(env);
+		if (line[0])
+			execute_command(line, ft_strdup(path), env);
+		i++;
 	}
 	return (0);
 }
