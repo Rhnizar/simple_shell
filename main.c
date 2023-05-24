@@ -1,39 +1,6 @@
 #include "main.h"
 
 /**
- * cmd_app - execute command
- * @line : char pointer
- */
-
-void	cmd_app(char *line)
-{
-	char	**split;
-	pid_t	pid;
-
-	pid = fork();
-	split = ft_split(line, ' ');
-	if (pid == 0)
-	{
-		if (split[1])
-		{
-			printf("./shell: No such file or directory\n");
-			free_double_ptr(split);
-			exit(1);
-		}
-		else if (execve(split[0], split, NULL) == -1)
-		{
-			printf("./shell: No such file or directory\n");
-			exit(1);
-		}
-	}
-	else if (pid == -1)
-		printf("Error the fork\n");
-	else
-		wait(NULL);
-	free_double_ptr(split);
-}
-
-/**
  * sig_handl - Ctrl + C
  * @sig: signal
  */
