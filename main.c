@@ -33,17 +33,14 @@ void	cmd_app(char *line)
 }
 
 /**
- * sig_handl - inspects the Ctrl C button
+ * sig_handl - Ctrl + C
  * @sig: signal
  */
 
 void sig_handl(int sig)
 {
 	if (sig == SIGINT)
-	{
-		printf("\033[0;33m simple_shell ~ ");
-		printf("\033[0;37m");
-	}
+		write(1, "\nsimple_shell ~ ", 16);
 }
 
 /**
@@ -65,13 +62,11 @@ int main(int argc, char **argv, char **env)
 	signal(SIGINT, sig_handl);
 	while (1)
 	{
-		printf("\033[0;33m simple_shell ~ ");
-		printf("\033[0;37m");
+		printf("simple_shell ~ ");
 		len_line = getline(&line, &buf, stdin);
 		if (len_line < 0)
 		{
 			free(line);
-			printf("exit\n");
 			return (0);
 		}
 		new_line(&line);
