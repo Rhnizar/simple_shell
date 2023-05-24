@@ -33,6 +33,20 @@ void	cmd_app(char *line)
 }
 
 /**
+ * sig_handl - inspects the Ctrl C button
+ * @sig: signal
+ */
+
+void sig_handl(int sig)
+{
+	if (sig == SIGINT)
+	{
+		printf("\033[0;33m simple_shell ~ ");
+		printf("\033[0;37m");
+	}
+}
+
+/**
  * main - main programme
  * @argc : arguments count
  * @argv : arguments values
@@ -48,6 +62,7 @@ int main(int argc, char **argv, char **env)
 
 	(void)argc;
 	(void)argv;
+	signal(SIGINT, sig_handl);
 	while (1)
 	{
 		printf("\033[0;33m simple_shell ~ ");
