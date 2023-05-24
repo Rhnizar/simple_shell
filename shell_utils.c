@@ -51,9 +51,9 @@ void new_line(char **str)
 }
 
 /**
- * ft_strdup - strdup
+ * ft_strdup - function strdup
  * @s1 : char pointer
- *Return : pointer
+ *Return: pointer
  */
 
 char	*ft_strdup(char *s1)

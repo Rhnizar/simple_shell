@@ -75,9 +75,9 @@ int main(int argc, char **argv, char **env)
 		}
 		new_line(&line);
 		if (ft_strncmp(line, "exit", 4) == 0)
-				my_exit(line);
+			my_exit(line);
 		if (ft_strncmp(line, "env", 3) == 0)
-				environment(env);
+			environment(env);
 		if (line[0])
 			cmd_app_task2(line, env);
 		free(line);
