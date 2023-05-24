@@ -17,6 +17,7 @@ void	cmd_app(char *line)
 		if (split[1])
 		{
 			printf("./shell: No such file or directory\n");
+			free_double_ptr(split);
 			exit(1);
 		}
 		else if (execve(split[0], split, NULL) == -1)
@@ -24,12 +25,12 @@ void	cmd_app(char *line)
 			printf("./shell: No such file or directory\n");
 			exit(1);
 		}
-		free_double_ptr(split);
 	}
 	else if (pid == -1)
 		printf("Error the fork\n");
 	else
 		wait(NULL);
+	free_double_ptr(split);
 }
 
 /**
@@ -77,10 +78,9 @@ int main(int argc, char **argv, char **env)
 			if (ft_strncmp(line, "exit", 4) == 0)
 				my_exit(line);
 			else
-				cmd_app_task2(line, env);
+				cmd_app(line);
 		}
 	}
-	free(line);
 	return (0);
 }
 
