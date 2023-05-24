@@ -74,6 +74,7 @@ int main(int argc, char **argv, char **env)
 				free(line);
 			return (0);
 		}
+		i++;
 		new_line(&line);
 		if (ft_strncmp(line, "exit", 4) == 0)
 				my_exit(line);
@@ -81,7 +82,6 @@ int main(int argc, char **argv, char **env)
 				environment(env);
 		if (line[0])
 			execute_command(line, ft_strdup(path), env);
-		i++;
 	}
 	return (0);
 }
