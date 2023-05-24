@@ -19,7 +19,7 @@ void	cmd_app_task2(char *line, char **env)
 	free_double_ptr(paths);
 	if (!valid_cmd)
 	{
-		perror("./shell:");
+		perror("./shell");
 		free_double_ptr(split);
 		return;
 	}
@@ -30,15 +30,17 @@ void	cmd_app_task2(char *line, char **env)
 		{
 			if (execve(valid_cmd, split, NULL) == -1)
 			{
-				perror("./shell:");
+				perror("./shell");
+				free_double_ptr(split);
 				exit(1);
 			}
 		}
 		else if (pid == -1)
-			perror("./shell:");
+			perror("./shell");
 		else
 			wait(NULL);
 		free(valid_cmd);
+		free_double_ptr(split);
 	}
 }
 
