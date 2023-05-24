@@ -56,7 +56,7 @@ int main(int argc, char **argv, char **env)
 		if (len_line < 0)
 		{
 			free(line);
-			// printf("exit\n");
+			printf("exit\n");
 			return (0);
 		}
 		new_line(&line);
@@ -64,11 +64,10 @@ int main(int argc, char **argv, char **env)
 		{
 			if (ft_strncmp(line, "env", 3) == 0)
 				environment(env);
-			// if (ft_strncmp(line, "exit", 4) == 0)
-			// 	my_exit(line);
+			if (ft_strncmp(line, "exit", 4) == 0)
+				my_exit(line);
 			else
 				cmd_app_task2(line, env);
-				// cmd_app(line);
 		}
 	}
 	free(line);
