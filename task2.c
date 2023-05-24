@@ -38,7 +38,6 @@ void	cmd_app_task2(char *line, char **env)
 			perror("./shell:");
 		else
 			wait(NULL);
-		free_double_ptr(split);
 		free(valid_cmd);
 	}
 }
