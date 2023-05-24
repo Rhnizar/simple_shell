@@ -37,8 +37,6 @@ void execute_command(char *cmd, char *path, char **env)
 	char **split;
 
 	int pid;
-	/*char *full_path;*/
-
 	split = ft_split(cmd, ' ');
 	if (!split[0])
 	{
