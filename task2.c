@@ -19,7 +19,7 @@ void	cmd_app_task2(char *line, char **env)
 	free_double_ptr(paths);
 	if (!valid_cmd)
 	{
-		printf("%s: command not found\n", split[0]);
+		perror("./shell:");
 		free_double_ptr(split);
 		return;
 	}
@@ -30,12 +30,12 @@ void	cmd_app_task2(char *line, char **env)
 		{
 			if (execve(valid_cmd, split, NULL) == -1)
 			{
-				printf("Error in execve\n");
+				perror("./shell:");
 				exit(1);
 			}
 		}
 		else if (pid == -1)
-			printf("Error the fork\n");
+			perror("./shell:");
 		else
 			wait(NULL);
 		free_double_ptr(split);
