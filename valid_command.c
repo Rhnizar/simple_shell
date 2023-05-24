@@ -100,10 +100,14 @@ char	*valid_command_path(char **paths, char *cmd)
 	{
 		command_path = ft_join_command_path(*paths, cmd);
 		if (access(command_path, F_OK) == 0)
+		{
+			free(cmd);
 			return (command_path);
+		}
 		free(command_path);
 		paths++;
 	}
+	free(cmd);
 	return (NULL);
 }
 

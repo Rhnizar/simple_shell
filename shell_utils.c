@@ -11,7 +11,10 @@ void	free_double_ptr(char **str)
 
 	i = 0;
 	while (str[i])
-		free(str[i++]);
+	{
+		free(str[i]);
+		i++;
+	}
 	free(str);
 }
 
@@ -45,5 +48,29 @@ void new_line(char **str)
 	len = ft_strlen(*str) - 1;
 	if ((*str)[len] == '\n')
 		(*str)[len] = '\0';
+}
+
+/**
+ * ft_strdup - strdup
+ * @s1 : char pointer
+ *Return : pointer
+ */
+
+char	*ft_strdup(char *s1)
+{
+	int		i;
+	char	*ret;
+
+	ret = malloc(ft_strlen(s1) + 1);
+	if (!ret)
+		return (0);
+	i = 0;
+	while (s1[i])
+	{
+		ret[i] = s1[i];
+		i++;
+	}
+	ret[i] = '\0';
+	return (ret);
 }
 

@@ -54,11 +54,10 @@ void sig_handl(int sig)
 
 int main(int argc, char **argv, char **env)
 {
-	char		*line = NULL;
+	char		*line;
 	ssize_t		len_line;
 	size_t		buf = 0;
 	char		*path;
-	int			i = 0;
 
 	(void)argc;
 	(void)argv;
@@ -67,21 +66,21 @@ int main(int argc, char **argv, char **env)
 	while (1)
 	{
 		printf("simple_shell ~ ");
+		line = NULL;
 		len_line = getline(&line, &buf, stdin);
-		if (len_line < 0)
+		if (len_line == -1)
 		{
-			if (i == 0)
-				free(line);
+			free(line);
 			return (0);
 		}
-		i++;
 		new_line(&line);
 		if (ft_strncmp(line, "exit", 4) == 0)
 				my_exit(line);
 		if (ft_strncmp(line, "env", 3) == 0)
 				environment(env);
 		if (line[0])
-			execute_command(line, ft_strdup(path), env);
+			cmd_app_task2(line, env);
+		free(line);
 	}
 	return (0);
 }

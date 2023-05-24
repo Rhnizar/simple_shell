@@ -15,7 +15,7 @@ void	cmd_app_task2(char *line, char **env)
 
 	split = ft_split(line, ' ');
 	paths = get_paths(env);
-	valid_cmd = valid_command_path(paths, split[0]);
+	valid_cmd = valid_command_path(paths, ft_strdup(split[0]));
 	free_double_ptr(paths);
 	if (!valid_cmd)
 	{
@@ -32,6 +32,7 @@ void	cmd_app_task2(char *line, char **env)
 			{
 				perror("./shell");
 				free_double_ptr(split);
+				free(valid_cmd);
 				exit(1);
 			}
 		}
@@ -40,7 +41,7 @@ void	cmd_app_task2(char *line, char **env)
 		else
 			wait(NULL);
 		free(valid_cmd);
-		free(split);
+		free_double_ptr(split);
 	}
 }
 

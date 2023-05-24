@@ -20,8 +20,7 @@ void	cmd_app_task2(char *line, char **env);
 void	environment(char **env);
 int		ft_strncmp(char *s1, char *s2, size_t n);
 void	my_exit(char *line);
-void	execute_command(char *cmd, char *path, char **env);
-char	*ft_strdup(char *s);
+char	*ft_strdup(char *s1);
 
 #endif
 
