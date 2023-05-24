@@ -53,12 +53,12 @@ int main(int argc, char **argv, char **env)
 		printf("\033[0;33m simple_shell ~ ");
 		printf("\033[0;37m");
 		len_line = getline(&line, &buf, stdin);
-		// if (len_line < 0)
-		// {
-		// 	free(line);
-		// 	printf("exit\n");
-		// 	return (0);
-		// }
+		if (len_line < 0)
+		{
+			free(line);
+			printf("exit\n");
+			return (0);
+		}
 		new_line(&line);
 		if (line[0])
 		{
